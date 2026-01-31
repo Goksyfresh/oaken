@@ -1,8 +1,18 @@
 import React from 'react'
 import ProductCard from './productCard'
 
+ type Product = {
+  id: number
+  image: string 
+  name: string
+  description: string
+  price: number
+  colors: string[]
+  materials: string[]
+  dimension: string[]
+}
 
-const ProductGrid = ({products}) => {
+const ProductGrid = ({products}: {products: Product[]}) => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-4 lg:gap-y-20'>
       {products.map(p=>(
