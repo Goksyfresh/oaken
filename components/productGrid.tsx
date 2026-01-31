@@ -1,9 +1,10 @@
 import React from 'react'
+import { StaticImageData } from 'next/image'
 import ProductCard from './productCard'
 
  type Product = {
   id: number
-  image: string 
+  image: StaticImageData
   name: string
   description: string
   price: number

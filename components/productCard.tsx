@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { MdArrowOutward } from "react-icons/md";
 import React from 'react'
 type PropsType = {
-    img:string,
+    img:StaticImageData,
     title:string,
     price:number;
 }
