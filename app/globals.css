@@ -1,3 +1,15 @@
+@font-face {
+  font-family: sfPro;
+  src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF");
+}
+@font-face {
+  font-family: sfProMd;
+  src: url("../assets/fonts/SFPRODISPLAYMEDIUM.OTF");
+}
+@font-face {
+  font-family: sfProB;
+  src: url("../assets/fonts/SFPRODISPLAYBOLD.OTF");
+}
 @import "tailwindcss";
 
 :root {
@@ -10,17 +22,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sfPro: sfPro, sans-serif;
+  --font-sfProMd: sfProMd, sans-serif;
+  --font-sfProB: sfProB, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
