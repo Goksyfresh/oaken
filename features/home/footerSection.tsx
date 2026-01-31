@@ -7,7 +7,7 @@ import FooterImage3 from '../../public/images/footer3.png'
 
 const FooterSection = () => {
   return (
-    <div className="p-14">
+    <div className="lg:p-14 p-9">
          <p
         className="font-sfProMd lg:text-[36px] text-[30px] uppercase [--letter-spacing:-0.04em]"
         style={{ letterSpacing: "var(--letter-spacing)" }}

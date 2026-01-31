@@ -4,7 +4,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
 const FaqSection = () => {
   return (
-    <div className="relative mt-20 p-14">
+    <div className="relative mt-20 lg:p-14 p-9">
       <div className="flex items-center justify-between lg:mb-10 w-full">
         <p
           className="uppercase hidden lg:block font-sfProMd text-[24px]"

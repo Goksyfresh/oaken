@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 const HeroSection = () => {
   return (
-    <div className='p-14 overflow-clip'>
+    <div className='lg:p-14 p-9 overflow-clip'>
       <nav className='flex items-center lg:items-start justify-between'>
         <h1 className='font-sfProMd text-[36px] lg:text-[128px] leading-none lg:-mt-3 uppercase' style={{letterSpacing:'-0.04em'}}>oaken</h1>
         <ul className='hidden lg:flex items-center gap-4'>

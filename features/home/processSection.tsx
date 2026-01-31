@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const ProcessSection = () => {
   return (
-    <div className="p-12 mt-10 overflow-hidden">
+    <div className="lg:p-14 p-9 mt-10 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between mb-8 lg:mb-12">
         <p
