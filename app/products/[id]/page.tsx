@@ -1,14 +1,17 @@
 // app/products/[id]/page.tsx
 "use client";
 import { getProductById } from '@/lib/product'
-import { notFound, useParams } from 'next/navigation'
+import { notFound, useParams, useRouter } from 'next/navigation'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from 'react-icons/io'
+import { useCart } from '@/context/cartContext';
 
 export default function ProductPage() {
   const params = useParams()
+  const router = useRouter()
+  const { addToCart } = useCart()
   const product = getProductById(parseInt(params.id as string))
   
   const [selectedColor, setSelectedColor] = React.useState<string>(
@@ -17,6 +20,10 @@ export default function ProductPage() {
 
   if (!product) {
     notFound()
+  }
+  const handleAddToCart = () => {
+    addToCart(product, selectedColor)
+    router.push('/cart')
   }
 
   return (
@@ -53,7 +60,7 @@ export default function ProductPage() {
             <p className='uppercase font-sfPro text-[#676767] text-[18px] lg:text-[24px] mb-4'>
               colour: {selectedColor}
             </p>
-            {product.colors.length > 1 && (
+            {product.colors.length > 0 && (
               <div className='flex items-center gap-4'>
                 {product.colors.map((color, index) => (
                   <div 
@@ -83,7 +90,7 @@ export default function ProductPage() {
         <p className='uppercase font-sfPro text-[#676767] text-[14px]' style={{letterSpacing: '-0.02em'}}>
           colour: {selectedColor}
         </p>
-        {product.colors.length > 1 && (
+        {product.colors.length  > 0 && (
           <div className='flex items-center gap-3'>
             {product.colors.map((color, index) => (
               <div 
@@ -107,12 +114,12 @@ export default function ProductPage() {
       </div>
 
       {/* Mobile Add to Cart */}
-      <Link href="/cart" className='lg:hidden flex items-center gap-2 group mt-6'>
+      <button onClick={handleAddToCart} className='lg:hidden flex items-center gap-2 group mt-6'>
         <span className="text-black font-sfPro text-[14px] underline uppercase group-hover:opacity-70 transition-opacity">
           add to cart
         </span>
         <IoIosArrowRoundForward size={30} className='group-hover:translate-x-1 transition-transform'/>
-      </Link>
+      </button>
 
       {/* Description */}
       <div className='mt-10 lg:mt-16 w-full lg:w-[50%]'>
@@ -151,12 +158,12 @@ export default function ProductPage() {
         </div>
 
         {/* Desktop Add to Cart Button */}
-        <Link href="/cart" className='hidden lg:flex items-center gap-2 group'>
+        <button onClick={handleAddToCart} className='hidden lg:flex items-center gap-2 group'>
           <span className="text-black font-sfProB text-[24px] underline uppercase group-hover:opacity-70 transition-opacity">
             add to cart
           </span>
           <IoIosArrowRoundForward size={30} className='group-hover:translate-x-1 transition-transform'/>
-        </Link>
+        </button>
       </div>
     </div>
   )
