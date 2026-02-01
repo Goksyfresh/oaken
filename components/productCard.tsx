@@ -1,14 +1,16 @@
 import Image, { StaticImageData } from 'next/image';
 import { MdArrowOutward } from "react-icons/md";
 import React from 'react'
+import Link from 'next/link';
 type PropsType = {
     img:StaticImageData,
     title:string,
     price:number;
+    id:number;
 }
-const ProductCard = ({img, title, price}:PropsType) => {
+const ProductCard = ({img, title, price, id}:PropsType) => {
   return (
-    <div className='flex flex-col items-start gap-2'>
+    <Link href={`/products/${id}`} className='flex flex-col items-start gap-2'>
       <Image src={img} alt={title} className='lg:w-[411px] lg:h-[429px] w-[339px] h-[354px] object-cover'/>
       <p className='font-sfProMd text-[18px] lg:text-[30px] lg:[--letter-spacing:-0.00em] [--letter-spacing:-0.04em]' style={{letterSpacing:"var(--letter-spacing)"}}>{title}</p>
       <div className='flex items-center justify-between w-full'>
@@ -16,7 +18,7 @@ const ProductCard = ({img, title, price}:PropsType) => {
       <MdArrowOutward size={20} className='hidden lg:block'/>
       </div>
 
-    </div>
+    </Link>
   )
 }
 

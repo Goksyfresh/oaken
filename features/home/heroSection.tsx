@@ -1,11 +1,20 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react'
 import Dropdown from "../../public/images/dropdown.png"
 import HeroImage1 from '../../public/images/hero1.png'
 import HeroImage2 from '../../public/images/hero2.png'
 import { MdArrowOutward } from "react-icons/md";
 import Image from 'next/image'
+import HamburgerMenu from '@/components/hamburgerMenu';
 
 const HeroSection = () => {
+  const[modalOpen, setModalOpen]=useState<boolean>(false);
+  const handleModalOpen=()=>{
+    setModalOpen(true);
+  }
+  const handleModalClose=()=>{
+    setModalOpen(false);
+  }
   return (
     <div className='lg:p-14 p-9 overflow-clip'>
       <nav className='flex items-center lg:items-start justify-between'>
@@ -19,10 +28,13 @@ const HeroSection = () => {
               </div>
              
         </ul>
-        <div className='lg:hidden flex gap-3 flex-col items-end'>
+        <div onClick={handleModalOpen} className='lg:hidden flex gap-3 flex-col items-end'>
    <div className='h-[5px] w-[35px] bg-black rounded-full'/>
     <div className='h-[5px] w-[50px] bg-black rounded-full'/>
         </div>
+        {modalOpen && (
+          <HamburgerMenu onClose={handleModalClose}/>
+        )}
    
       </nav>
       <div className='flex flex-col lg:flex-row items-start gap-6 lg:justify-between mt-15 lg:mt-30'>

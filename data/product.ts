@@ -15,7 +15,7 @@ export const products = [
     description:
       "The Oaken Modular Lounge combines a solid wood stand crafted from European hardwood with high-density foam selected for durability and comfort. Each component is chosen for performance and longevity.",
     price: 766,
-    colors: ["#EBE4DE", "#804B22", "#000"],
+    colors: ["#EBE4DE", "#804B22", "#000000"],
     materials: ["European oak", "Polyurethane foam"],
     dimension: ["Width 820 mm", "Seat H. 420 mm"],
   },

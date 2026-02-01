@@ -2,7 +2,7 @@ import React from "react";
 import ProcessImage1 from "../../public/images/process1.png";
 import ProcessImage2 from "../../public/images/process2.png";
 import Image from "next/image";
-import { MdArrowForward } from "react-icons/md";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 const ProcessSection = () => {
   return (
@@ -15,7 +15,7 @@ const ProcessSection = () => {
         >
           process
         </p>
-        <MdArrowForward size={24}/>
+        <IoIosArrowRoundForward size={24}/>
       </div>
 
       {/* Desktop Layout */}
