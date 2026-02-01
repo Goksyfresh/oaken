@@ -2,6 +2,7 @@ import React from "react";
 import ProcessImage1 from "../../public/images/process1.png";
 import ProcessImage2 from "../../public/images/process2.png";
 import Image from "next/image";
+import { MdArrowForward } from "react-icons/md";
 
 const ProcessSection = () => {
   return (
@@ -14,6 +15,7 @@ const ProcessSection = () => {
         >
           process
         </p>
+        <MdArrowForward size={24}/>
       </div>
 
       {/* Desktop Layout */}
@@ -42,21 +44,19 @@ const ProcessSection = () => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden -ml-30">
+      <div className="lg:hidden -ml-37">
         <div className="flex items-center justify-between">
           <Image
             src={ProcessImage1}
             alt="process-image"
-            className="w-[340px] h-[292px] object-cover"
-            width={340}
-            height={292}
+            className="w-[390px] h-[292px] object-cover"
+          
           />
           <Image
             src={ProcessImage2}
             alt="process-image"
-            className="w-[340px] h-[292px] object-cover"
-            width={340}
-            height={292}
+            className="w-[390px] h-[292px] object-cover"
+          
           />
         </div>
         <p 

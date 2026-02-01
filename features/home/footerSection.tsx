@@ -15,7 +15,7 @@ const FooterSection = () => {
         oaken
       </p>
       <p
-        className="font-sfProMd lg:text-[26px] text-[14px] [--letter-spacing:-0.04em]"
+        className="font-sfProMd mb-4 lg:text-[26px] text-[14px] [--letter-spacing:-0.04em]"
         style={{ letterSpacing: "var(--letter-spacing)" }}
       >
         Solid wood furniture since <span className="font-sfProB">1946</span>
@@ -66,7 +66,7 @@ const FooterSection = () => {
           <Image src={FooterImage3} alt="" className="w-[430px] h-[429px] object-cover"/>
 
       </div>
-     <p className="text-[12px] lg:hidden text-[#8D8D8D] font-sfPro w-[95%]" style={{letterSpacing:"-0.01em", lineHeight:"20px"}}>
+     <p className="text-[12px] lg:hidden text-[#8D8D8D] font-sfPro my-6 w-[95%]" style={{letterSpacing:"-0.01em", lineHeight:"20px"}}>
         Oaken designs and produces furniture with a focus on material integrity,
         functional clarity, and long-term use. All products are made using
         natural materials and controlled manufacturing processes developed to
@@ -84,7 +84,7 @@ const FooterSection = () => {
         to the principles established since its founding.
       </p>
       <div className="flex justify-between w-full items-end">
-  <ul className="flex flex-col lg:flex-row lg:gap-24 items-start gap-2">
+  <ul className="flex flex-col lg:flex-row lg:gap-24 items-start gap-4">
         <li className="underline lg:no-underline font-sfPro text-[14px] lg:text-[26px] [--letter-spacing:-0.03em] lg:[--letter-spacing:0.0em] text-right" style={{letterSpacing: "var(--letter-spacing)"}}><a href="#">Privacy</a></li>
         <li className="underline lg:no-underline font-sfPro text-[14px] lg:text-[26px] [--letter-spacing:-0.03em] lg:[--letter-spacing:0.0em] text-right" style={{letterSpacing: "var(--letter-spacing)"}}><a href="#">Terms</a></li>
       </ul>
