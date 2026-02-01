@@ -30,7 +30,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-between lg:p-14 p-6'>
+    <div className='flex flex-col lg:flex-row items-center justify-between lg:p-14 p-4'>
     <div className='flex-2'>
       {/* Header */}
       <div className='mb-8'>
@@ -41,12 +41,12 @@ export default function CartPage() {
       </div>
 
       {/* Table Header */}
-      <div className="bg-[#cccccc] h-[1px] w-full mt-4 mb-6" />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }} className="pb-4 text-xs text-black mb-4">
-  <div className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.01em"}}>Item</div>
-  <div  className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.01em"}}>Unit Price</div>
-  <div  className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.01em"}}>Quantity</div>
-  <div  className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.01em"}}>Total Price</div>
+      <div className="bg-[#cccccc] hidden lg:block h-[1px] w-full mt-4 mb-6" />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }} className="pb-4 hidden lg:block text-xs text-black mb-4">
+  <div className='font-sfProMd text-[18px] hidden lg:block' style={{letterSpacing:"-0.01em"}}>Item</div>
+  <div  className='font-sfProMd text-[18px] hidden lg:block' style={{letterSpacing:"-0.01em"}}>Unit Price</div>
+  <div  className='font-sfProMd text-[18px] hidden lg:block' style={{letterSpacing:"-0.01em"}}>Quantity</div>
+  <div  className='font-sfProMd text-[18px] hidden lg:block' style={{letterSpacing:"-0.01em"}}>Total Price</div>
 </div>
 
       {/* Cart Items */}
@@ -68,9 +68,9 @@ export default function CartPage() {
     </div>
      {/* Cart Summary */}
      
-      <div className='flex flex-col' style={{padding:'80px'}}>
+      <div className='flex flex-col' style={{padding:"80px"}}>
        <p className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.03em"}}>Promo Code</p>
-       <input type="text" className='border-2 p-2 my-6 ' style={{border:'1px solid #ccc', padding:'16px'}} placeholder='Enter Promo Code' />
+       <input type="text" className='p-2 my-6 ' style={{border:'1px solid #ccc', padding:'16px'}} placeholder='Enter Promo Code' />
 
         <div className='w-full lg:w-auto lg:min-w-[300px]'>
           <div className='flex justify-between items-center my-6'>
