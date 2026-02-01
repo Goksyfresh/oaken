@@ -7,7 +7,10 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 const ProductDetails = (product: Product) => {
-    const [selectedColor, setSelectedColor] = React.useState<string>(product.colors[0]);
+    const [selectedColor, setSelectedColor] = React.useState<string>(
+  product.colors?.[0] ?? ''
+);
+
   
   return (
     <div className='lg:p-14 p-6 relative'>
@@ -95,7 +98,12 @@ const ProductDetails = (product: Product) => {
           </div>
         )}
       </div>
-
+   <Link href="/cart" className='lg:hidden flex items-center gap-2 group mt-6 lg:mt-0'>
+          <span className="text-black font-sfPro lg:font-sfProB text-[14px] lg:text-[24px] underline uppercase group-hover:opacity-70 transition-opacity">
+            add to cart
+          </span>
+          <IoIosArrowRoundForward size={30} className='group-hover:translate-x-1 transition-transform'/>
+        </Link>
       {/* Description */}
       <div className='mt-10 lg:mt-16 w-full lg:w-[50%]'>
         <p className='font-sfPro text-[14px] lg:text-[24px] text-[#676767] leading-relaxed' style={{letterSpacing: '-0.01em'}}>
@@ -133,7 +141,7 @@ const ProductDetails = (product: Product) => {
         </div>
 
         {/* Add to Cart Button */}
-        <Link href="/cart" className='flex items-center gap-2 group mt-6 lg:mt-0'>
+        <Link href="/cart" className='hidden lg:flex items-center gap-2 group mt-6 lg:mt-0'>
           <span className="text-black font-sfProB text-[14px] lg:text-[24px] underline uppercase group-hover:opacity-70 transition-opacity">
             add to cart
           </span>
