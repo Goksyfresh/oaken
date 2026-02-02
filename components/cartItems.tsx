@@ -77,7 +77,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
         <div className='w-[47px] h-[47px] flex-shrink-0 bg-[#F5F5F5] rounded'>
             <Image src={image} alt={name} className='w-full h-full object-cover rounded' width={47} height={47}/>
           </div>
-        <div className='flex flex-col items-start ml-4 gap-3'>
+        <div className='flex flex-col w-full items-start ml-4 gap-3'>
           
           <h3 className='font-sfPro text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"0.03em"}}>
             {name}
