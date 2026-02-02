@@ -18,7 +18,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
   const { updateQuantity } = useCart()
 
   return (
-    <div className='py-6'>
+    <div className='lg:py-6 py-2'>
          <div className="hidden lg:block bg-[#cccccc] h-[1px] w-full my-4" />
          <div className='hidden lg:block'>
  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }} className="items-center my-6">
@@ -72,17 +72,17 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
          </div>
      
       {/* Mobile View */}
-        <div className="flex lg:hidden items-center justify-between my-6">
+        <div className="flex lg:hidden items-center justify-between lg:my-6">
         {/* Item - image + name */}
         <div className='w-[47px] h-[47px] flex-shrink-0 bg-[#F5F5F5] rounded'>
             <Image src={image} alt={name} className='w-full h-full object-cover rounded' width={47} height={47}/>
           </div>
         <div className='flex flex-col items-start ml-4 gap-3'>
           
-          <h3 className='font-sfProXpd text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"-0.03em"}}>
+          <h3 className='font-sfPro text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"0.03em"}}>
             {name}
           </h3>
-          <p className='font-sfProXpd text-[12px] text-[#676767]' style={{letterSpacing:"-0.01em"}}>
+          <p className='font-sfPro text-[12px] text-[#676767]' style={{letterSpacing:"0.03em"}}>
           ${price.toFixed(2)}
         </p>
         </div>

@@ -30,12 +30,12 @@ export default function CartPage() {
   }
 
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-between lg:p-14 p-2'>
-    <div className='flex-2'>
+    <div className='flex flex-col lg:flex-row items-center justify-between lg:p-14 p-4'>
+    <div className='w-full p-4 lg:p-0 '>
       {/* Header */}
       <div className='lg:mb-8 mb-4'>
-        <h1 className='font-sfProMd text-[24px] lg:text-[30px] mb-2 [--letter-spacing:0.01em] lg:[--letter-spacing:0.0em]' style={{letterSpacing:"var(--letter-spacing)"}}>Cart</h1>
-        <p className='font-sfPro text-[14px] lg:text-[24px] text-black' style={{letterSpacing:"-0.01em"}}>
+        <h1 className='font-sfProMd text-[24px] lg:text-[30px] mb-2 [--letter-spacing:0.03em] lg:[--letter-spacing:0.0em]' style={{letterSpacing:"var(--letter-spacing)"}}>Cart</h1>
+        <p className='font-sfPro text-[14px] lg:text-[24px] text-black' style={{letterSpacing:"0.03em"}}>
           Your cart ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'items'})
         </p>
       </div>
@@ -93,25 +93,25 @@ export default function CartPage() {
         </div>
       </div>
          <div className='flex lg:hidden flex-col' style={{padding:"20px"}}>
-       <p className='font-sfProMd text-[18px]' style={{letterSpacing:"-0.03em"}}>Promo Code</p>
+       <p className='font-sfPro text-[18px]' style={{letterSpacing:"0.03em"}}>Promo Code</p>
        <input type="text" className='p-2 my-6 ' style={{border:'1px solid #ccc', padding:'16px'}} placeholder='Enter Promo Code' />
 
         <div className='w-full lg:w-auto lg:min-w-[300px]'>
           <div className='flex justify-between items-center my-6'>
-            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]'>Subtotal</p>
-            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black'>${subtotal}</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Subtotal</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black' style={{letterSpacing:"0.03em"}}>${subtotal}</p>
           </div>
           <div className='flex justify-between items-center my-6'>
-            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]'>Tax & Custom</p>
-            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black'>${shipping}</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Tax & Custom</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black' style={{letterSpacing:"0.03em"}}>${shipping}</p>
           </div>
           
           <div className='flex justify-between items-center my-6'>
-            <p className='font-sfProB text-[16px] lg:text-[16px] text-[#676767]'>Total</p>
-            <p className='font-sfProB text-[16px] lg:text-[15px] text-black'>${total}</p>
+            <p className='font-sfProB text-[16px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Total</p>
+            <p className='font-sfProB text-[16px] lg:text-[15px] text-black' style={{letterSpacing:"0.03em"}}>${total}</p>
           </div>
-<p className='font-sfProMd text-[16px] text-[#676767] my-6' style={{letterSpacing:"-0.01em"}}>Shipping cost and Tax & Custom fee will be calculated and included at the checkout section</p>
-          <button className='w-full bg-black rounded-2xl text-white font-sfProB text-[16px] lg:text-[16px] py-3 hover:bg-gray-800 transition-colors'>
+<p className='font-sfProMd text-[16px] text-[#676767] my-6' style={{letterSpacing:"0.03em"}}>Shipping cost and Tax & Custom fee will be calculated and included at the checkout section</p>
+          <button className='w-full bg-black rounded-2xl text-white font-sfProB text-[16px] lg:text-[16px] py-3 hover:bg-gray-800 transition-colors' style={{letterSpacing:"0.03em"}}>
             Go to Checkout
           </button>
         </div>
