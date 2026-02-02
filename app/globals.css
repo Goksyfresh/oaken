@@ -10,6 +10,10 @@
   font-family: sfProB;
   src: url("../assets/fonts/SFPRODISPLAYBOLD.OTF");
 }
+@font-face {
+  font-family: sfProXpd;
+  src: url("../assets/fonts/sfExpanded.ttf");
+}
 @import "tailwindcss";
 
 :root {
@@ -25,6 +29,7 @@
   --font-sfPro: sfPro, sans-serif;
   --font-sfProMd: sfProMd, sans-serif;
   --font-sfProB: sfProB, sans-serif;
+  --font-sfProXpd: sfProXpd, sans-serif;
 }
 
 body {

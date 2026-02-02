@@ -54,7 +54,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
       const val = parseInt(e.target.value)
       if (!isNaN(val)) updateQuantity(id, val)
     }}
-    className='font-sfPro text-[16px] w-8 text-center border border-[#E5E5E5] rounded bg-transparent outline-none'
+    className='font-sfPro text-[16px] w-8 text-center border border-[#E5E5E5] rounded-xl bg-transparent outline-none'
   />
   <button 
     onClick={() => updateQuantity(id, quantity + 1)}
@@ -71,7 +71,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
       </div>
          </div>
      
-      
+      {/* Mobile View */}
         <div className="flex lg:hidden items-center justify-between my-6">
         {/* Item - image + name */}
         <div className='w-[47px] h-[47px] flex-shrink-0 bg-[#F5F5F5] rounded'>
@@ -79,10 +79,10 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
           </div>
         <div className='flex flex-col items-start ml-4 gap-3'>
           
-          <h3 className='font-sfPro text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"-0.01em"}}>
+          <h3 className='font-sfProXpd text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"-0.03em"}}>
             {name}
           </h3>
-          <p className='font-sfPro text-[14px] lg:text-[20px] text-black' style={{letterSpacing:"-0.01em"}}>
+          <p className='font-sfProXpd text-[12px] text-[#676767]' style={{letterSpacing:"-0.01em"}}>
           ${price.toFixed(2)}
         </p>
         </div>
@@ -92,7 +92,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
 
         {/* Quantity */}
        {/* Quantity - Desktop */}
-<div className='flex items-center gap-3'>
+<div className='flex items-center gap-1'>
   <button 
     onClick={() => updateQuantity(id, quantity - 1)}
     className='w-8 h-8 flex items-center justify-center hover:opacity-60'
@@ -107,7 +107,7 @@ const CartItems = ({id, image, name, price, quantity, totalPrice}: CartItemProps
       const val = parseInt(e.target.value)
       if (!isNaN(val)) updateQuantity(id, val)
     }}
-    className='font-sfPro text-[16px] w-8 text-center border border-[#E5E5E5] rounded bg-transparent outline-none'
+    className='font-sfPro text-[16px] w-8 text-center border border-[#E5E5E5] rounded-lg bg-transparent outline-none'
   />
   <button 
     onClick={() => updateQuantity(id, quantity + 1)}
