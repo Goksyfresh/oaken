@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useRef } from "react";
 import ProcessImage1 from "../../public/images/process1.png";
 import ProcessImage2 from "../../public/images/process2.png";
 import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger, SplitText } from "gsap/all";
+import gsap from "gsap";
 
 const ProcessSection = () => {
+  const processContainer = useRef<HTMLDivElement>(null)
+   useGSAP(()=>{
+      const split = new SplitText('.process-text',{
+        type:"lines"
+      })
+       gsap.set(split.lines,{
+            opacity:0.7
+          })
+      ScrollTrigger.create({
+        trigger:processContainer.current,
+        start:"top 40%",
+        end:`+=${600}`,
+        scrub:1,
+        onUpdate:(self)=>{
+          const progress = self.progress
+          const totalLines = split.lines.length;
+         
+        split.lines.forEach((line, index) => {
+          // each line gets its own reveal window
+          const lineProgress = gsap.utils.clamp(
+            0,
+            1,
+            progress * totalLines - index
+          );
+  
+          gsap.to(line, {
+            opacity: gsap.utils.interpolate(0.2, 1, lineProgress),
+            duration: 0.2,
+            overwrite: true,
+          });
+        });
+      }
+        })
+        
+    },[])
   return (
-    <div className="lg:p-14 p-9 mt-10 overflow-hidden">
+    <div ref={processContainer} className="lg:p-14 p-9 mt-10 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between mb-8 lg:mb-12">
         <p
@@ -36,7 +74,7 @@ const ProcessSection = () => {
             height={810}
           />
         </div>
-        <p className="mt-10 font-sfProMd text-[36px] w-[890px] mx-auto text-center">
+        <p className="process-text mt-10 font-sfProMd text-[36px] w-[890px] mx-auto text-center">
           Oaken follows a disciplined process designed for precision and
           efficiency. Each step is carefully controlled to ensure consistent
           quality with minimal waste.
@@ -60,7 +98,7 @@ const ProcessSection = () => {
           />
         </div>
         <p 
-          className="mt-8 font-sfProMd text-[18px] w-[328px] relative left-1/2 -translate-x-1/2 mx-auto text-center" 
+          className="process-text mt-8 font-sfProMd text-[18px] w-[328px] relative left-1/2 -translate-x-1/2 mx-auto text-center" 
           style={{letterSpacing:"-0.05em"}}
         >
           Oaken follows a disciplined process designed for precision and
