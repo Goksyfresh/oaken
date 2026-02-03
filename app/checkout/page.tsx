@@ -9,50 +9,55 @@ import upsLogo from '../../public/images/ups.png'
 
 const CheckoutPage = () => {
   return (
-    <div className='p-14' style={{padding:"80px"}}>
+    <div className='lg:p-14 p-6'
+    //  style={{padding:"80px"}}
+     >
          <p className='lg:text-[30px] font-sfProMd mb-4'>Checkout</p>
         <p className='hidden lg:block font-sfProMd lg:text-[18px]'>Complete your purchase item by providing your payment details</p>
         <div className='flex lg:flex-row flex-col items-start justify-between'>
-<div className='flex w-[542px] flex-col gap-4'>
-    <div className='mt-4'>
+<div className='flex w-[542px] flex-col items-start gap-10'>
+    <div>
+ <div className='lg:mt-12 mt-6'>
         <label className='font-sfProMd text-[14px] [--letter-spacing:-0.02em] lg:[--letter-spacing:0.00em] lg:text-[16px] text-[#2e2e2e]' style={{letterSpacing:'var(--letter-spacing)'}}>Email Address</label><br/>
         <div className='relative'>
             <span style={{position:'absolute', top:"50%", left:"20px", transform:'translateY("-50%")'}}><FaAt color="#cccccc" /></span>
- <input type="email" placeholder='kawthargbemisola@yahoo.com' className='p-2 mt-2 pl-8 w-[338px] lg:w-[542px]' style={{border:'1px solid #cccccc', borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+ <input type="email" placeholder='kawthargbemisola@yahoo.com' className='p-2 mt-2 pl-8 w-full lg:w-[542px] rounded-xl' style={{border:'1px solid #cccccc', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
         </div>
        
     </div>
      <div className='mt-4'>
-        <label className='font-sfProMd lg:text-[16px] text-[#2e2e2e]'>Card Details</label><br/>
+        <label className='font-sfProMd text-[14px] [--letter-spacing:-0.02em] lg:[--letter-spacing:0.00em] lg:text-[16px] text-[#2e2e2e]' style={{letterSpacing:'var(--letter-spacing)'}}>Card Details</label><br/>
         <div className='relative flex flex-col lg:flex-row'>
             <span style={{position:'absolute', top:"50%", left:"20px", transform:'translateY("-50%")'}}><CiCreditCard1 color="#cccccc" /></span>
- <input type="number" placeholder='Card Number' className='p-2 mt-2 pl-10 w-[338px] lg:w-[542px]' style={{border:'1px solid #cccccc', borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
-  <input type="email" placeholder='CVV' className='p-2 mt-2 pl-10 w-[338px] lg:w-[542px]' style={{border:'1px solid #cccccc', borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+ <input type="number" placeholder='Card Number' className='p-2 mt-2 pl-10 w-full lg:w-[480px] rounded-xl' style={{border:'1px solid #cccccc', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+  <input type="email" placeholder='CVV' className='p-2 pl-10 w-full lg:w-[42px] rounded-xl mt-4' style={{border:'1px solid #cccccc', padding:'10px 10px 10px 50px'}}/>
         </div>
        
     </div>
      <div className='mt-4'>
-        <label className='font-sfProMd lg:text-[16px] text-[#2e2e2e]'>Name on card</label><br/>
+        <label className='font-sfProMd text-[14px] [--letter-spacing:-0.02em] lg:[--letter-spacing:0.00em] lg:text-[16px] text-[#2e2e2e]' style={{letterSpacing:'var(--letter-spacing)'}}>Name on card</label><br/>
         <div className='relative'>
             <span style={{position:'absolute', top:"50%", left:"20px", transform:'translateY("-50%")'}}><IoPerson color="#cccccc" /></span>
- <input type="email" placeholder='Enter your name' className='p-2 mt-2 pl-10 w-[338px] lg:w-[542px]' style={{border:'1px solid #cccccc',borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+ <input type="email" placeholder='Enter your name' className='p-2 mt-2 pl-10 w-full lg:w-[542px] rounded-xl' style={{border:'1px solid #cccccc', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
         </div>
        
     </div>
      <div className='mt-4'>
-        <label className='font-sfProMd lg:text-[16px] text-[#2e2e2e]'>Billing Address</label><br/>
+        <label className='font-sfProMd text-[14px] [--letter-spacing:-0.02em] lg:[--letter-spacing:0.00em] lg:text-[16px] text-[#2e2e2e]' style={{letterSpacing:'var(--letter-spacing)'}}>Billing Address</label><br/>
         <div className='relative flex flex-col'>
             <span style={{position:'absolute', top:"50%", left:"20px", transform:'translateY("-50%")'}}><FaAt color="#cccccc" /></span>
- <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 mt-2 pl-10 w-[338px] lg:w-[542px]' style={{border:'1px solid #cccccc', borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
- <div className='-mt-6'>
-    <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 mt-2 pl-10' style={{border:'1px solid #cccccc', width:"271px", borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
-    <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 mt-2 pl-10' style={{border:'1px solid #cccccc', width:"271px", borderRadius:'0.8px', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+ <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 mt-2 pl-10 w-full lg:w-[542px] rounded-xl' style={{border:'1px solid #cccccc', padding:'10px 10px 10px 50px', marginTop:"8px"}}/>
+ <div className='mt-4'>
+    <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 pl-10 rounded-xl' style={{border:'1px solid #cccccc', width:"271px", padding:'10px 10px 10px 50px'}}/>
+    <input type="email" placeholder='501 Shelby Drive, Jake Avenue' className='p-2 pl-10 rounded-xl' style={{border:'1px solid #cccccc', width:"271px", padding:'10px 10px 10px 50px'}}/>
  </div>
         </div>
        
       
     </div>
-     <div className='w-[70%]'>
+    </div>
+   
+     <div className='lg:w-[70%] mt-10 hidden lg:block'>
           <div className='flex justify-between items-center my-6'>
             <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Subtotal</p>
             <p className='font-sfProMd text-[14px] lg:text-[16px] text-black' style={{letterSpacing:"0.03em"}}>1689</p>
@@ -76,8 +81,9 @@ const CheckoutPage = () => {
 
 </div>
 <div>
-    <p>Order Summary</p>
-    <p>Please ensure that your order is correct for better shopping experience</p>
+    <div className='hidden lg:block'>
+    <p className='font-sfProB lg:text-[24px] text-[#2e2e2e] mb-4 ' style={{letterSpacing:'-0.01em'}}>Order Summary</p>
+    <p className='font-sfProMd text-[18px] text-[#676767] mb-6' style={{letterSpacing:"-0.01em"}}>Please ensure that your order is correct for better shopping experience</p>
     <div style={{border:"1px solid #cccccc", padding:"30px", borderRadius:"10px"}}>
     <div className='flex items-center justify-between my-4'>
         <div className='flex items-center gap-8'>
@@ -114,7 +120,8 @@ const CheckoutPage = () => {
     </div>
    
 </div>
- <p className='mt-12'>Available Shipping Method</p>
+</div>
+ <p className='mt-12 font-sfProMd text-[14px] lg:text-[18px] [--letter-spacing:-0.02em] lg:[--letter-spacing:-0.02em]' style={{letterSpacing:"var(--letter-spacing)"}}>Available Shipping Method</p>
      <div style={{border:"1px solid #cccccc", padding:"30px", borderRadius:"10px", marginTop:"30px"}}>
         <div className='flex items-center justify-between my-4'>
 <Image src={DhlLogo} width={51} height={36} alt=''/>
@@ -141,7 +148,25 @@ const CheckoutPage = () => {
 </div>
        </div>
       </div>
-<div></div>
+  <div className='lg:w-[70%] lg:hidden'>
+          <div className='flex justify-between items-center my-6'>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Subtotal</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black' style={{letterSpacing:"0.03em"}}>1689</p>
+          </div>
+          <div className='flex justify-between items-center my-6'>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Tax & Custom</p>
+            <p className='font-sfProMd text-[14px] lg:text-[16px] text-black' style={{letterSpacing:"0.03em"}}>$168.90</p>
+          </div>
+          
+          <div className='flex justify-between items-center my-6'>
+            <p className='font-sfProB text-[16px] lg:text-[16px] text-[#676767]' style={{letterSpacing:"0.03em"}}>Total</p>
+            <p className='font-sfProB text-[16px] lg:text-[15px] text-black' style={{letterSpacing:"0.03em"}}>$1857.90</p>
+          </div>
+<p className='font-sfProMd text-[16px] text-[#676767] my-6' style={{letterSpacing:"0.03em"}}>Shipping cost and Tax & Custom fee will be calculated and included at the checkout section</p>
+          <button className='w-full bg-black rounded-2xl text-white font-sfProB text-[16px] lg:text-[16px] py-3 hover:bg-gray-800 transition-colors' style={{letterSpacing:"0.03em"}}>
+            Go to Checkout
+          </button>
+        </div>
         </div>
       
        </div>

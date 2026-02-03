@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
+import { IoIosClose } from "react-icons/io";
 type faq = {
   text: string;
   description: string;
@@ -20,7 +21,12 @@ const FaqReusable = ({ text, description }: faq) => {
         >
           {text}
         </p>
-        <FaPlus size={14} onClick={handleClick} />
+        <div onClick={handleClick}>
+ {showQuestion ? (
+        <IoIosClose size={20}/>)   :(<FaPlus size={14}/> )}
+      
+        </div>
+       
       </div>
       <div className="lg:flex items-end justify-end">
         {showQuestion && (

@@ -1,20 +1,59 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Dropdown from "../../public/images/dropdown.png"
 import HeroImage1 from '../../public/images/hero1.png'
 import HeroImage2 from '../../public/images/hero2.png'
 import { MdArrowOutward } from "react-icons/md";
 import Image from 'next/image'
 import HamburgerMenu from '@/components/hamburgerMenu';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger, SplitText } from 'gsap/all';
+import { types } from 'util';
 
 const HeroSection = () => {
   const[modalOpen, setModalOpen]=useState<boolean>(false);
+  const aboutContainer = useRef<HTMLDivElement>(null)
   const handleModalOpen=()=>{
     setModalOpen(true);
   }
   const handleModalClose=()=>{
     setModalOpen(false);
   }
+  useGSAP(()=>{
+    const split = new SplitText('.about-text',{
+      type:"lines"
+    })
+     gsap.set(split.lines,{
+          opacity:0.7
+        })
+    ScrollTrigger.create({
+      trigger:aboutContainer.current,
+      start:"top 50%",
+      end:`+=${300}`,
+      scrub:1,
+      onUpdate:(self)=>{
+        const progress = self.progress
+        const totalLines = split.lines.length;
+       
+      split.lines.forEach((line, index) => {
+        // each line gets its own reveal window
+        const lineProgress = gsap.utils.clamp(
+          0,
+          1,
+          progress * totalLines - index
+        );
+
+        gsap.to(line, {
+          opacity: gsap.utils.interpolate(0.2, 1, lineProgress),
+          duration: 0.2,
+          overwrite: true,
+        });
+      });
+    }
+      })
+      
+  },[])
   return (
     <div className='lg:p-14 p-9 overflow-clip'>
       <nav className='flex items-center lg:items-start justify-between'>
@@ -67,9 +106,9 @@ const HeroSection = () => {
             <p className=' text-[20px] w-[580px] font-sfProMd text-end'>Oaken designs and crafts furniture from solid wood, guided by function, precision, and a commitment to longevity</p>
         </div>
       </div>
-      <div className='flex flex-col gap-2 mt-15 lg:mt-35'>
+      <div ref={aboutContainer} className='flex flex-col gap-2 mt-15 lg:mt-35'>
         <p className='uppercase text-[14px] lg:text-[24px] font-sfProMd' style={{letterSpacing:'-0.03em'}}>about</p>
-        <p className='text-[18px] lg:text-[42px] font-sfProMd lg:[--letter-spacing:-0.01em] [--letter-spacing:-0.05em]' style={{letterSpacing:"var(--letter-spacing)"}}>Oaken designs solid wood furniture defined by restraint, precision, and lasting quality. Established in 1946, the company continues to work with disciplined processes and material honesty to create pieces made to endure.</p>
+        <p className='about-text text-[18px] lg:text-[42px] font-sfProMd lg:[--letter-spacing:-0.01em] [--letter-spacing:-0.05em]' style={{letterSpacing:"var(--letter-spacing)"}}>Oaken designs solid wood furniture defined by restraint, precision, and lasting quality. Established in 1946, the company continues to work with disciplined processes and material honesty to create pieces made to endure.</p>
       </div>
     </div>
   )
