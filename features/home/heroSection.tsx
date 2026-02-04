@@ -66,13 +66,13 @@ const HeroSection = () => {
   ScrollTrigger.create({
       trigger:heroContainer.current,
       start:"top top",
-      end:`${250}px`,
+      end:`${270}px`,
       pin:true,
       scrub:1,
       onUpdate:(self)=>{
         const progress = self.progress
         gsap.to(imageContainer.current,{
-          x: -(progress * 265)
+          x: -(progress * 275)
         })
       }
     })
