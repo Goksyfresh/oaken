@@ -6,9 +6,15 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 const ProcessSection = () => {
   const processContainer = useRef<HTMLDivElement>(null)
+   const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
    useGSAP(()=>{
       const split = new SplitText('.process-text',{
         type:"lines"
@@ -18,7 +24,7 @@ const ProcessSection = () => {
           })
       ScrollTrigger.create({
         trigger:processContainer.current,
-        start:"top 40%",
+        start:`${isDesktopOrLaptop? "30% top" :"top 40%"}`,
         end:`+=${600}`,
         scrub:1,
         onUpdate:(self)=>{
@@ -42,7 +48,7 @@ const ProcessSection = () => {
       }
         })
         
-    },[])
+    },[isDesktopOrLaptop])
   return (
     <div ref={processContainer} className="lg:p-14 p-9 mt-10 overflow-hidden">
       {/* Header */}

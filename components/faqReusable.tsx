@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
 type faq = {
   text: string;
   description: string;
@@ -9,6 +10,9 @@ type faq = {
 
 const FaqReusable = ({ text, description }: faq) => {
   const [showQuestion, setShowQuestion] = useState(false);
+     const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  })
   const handleClick = () => {
     setShowQuestion(!showQuestion);
   };
@@ -23,7 +27,7 @@ const FaqReusable = ({ text, description }: faq) => {
         </p>
         <div onClick={handleClick}>
  {showQuestion ? (
-        <IoIosClose size={20}/>)   :(<FaPlus size={14}/> )}
+        <IoIosClose size={isDesktopOrLaptop? 30 : 20}/>)   :(<FaPlus size={14}/> )}
       
         </div>
        

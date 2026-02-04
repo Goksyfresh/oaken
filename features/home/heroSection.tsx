@@ -10,10 +10,15 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger, SplitText } from 'gsap/all';
 import { types } from 'util';
+import Link from 'next/link';
+import { useMediaQuery } from 'react-responsive';
 
 const HeroSection = () => {
   const[modalOpen, setModalOpen]=useState<boolean>(false);
   const aboutContainer = useRef<HTMLDivElement>(null)
+  const heroContainer = useRef<HTMLDivElement>(null)
+   const imageContainer = useRef<HTMLDivElement>(null)
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   const handleModalOpen=()=>{
     setModalOpen(true);
   }
@@ -27,6 +32,7 @@ const HeroSection = () => {
      gsap.set(split.lines,{
           opacity:0.7
         })
+        
     ScrollTrigger.create({
       trigger:aboutContainer.current,
       start:"top 50%",
@@ -54,12 +60,31 @@ const HeroSection = () => {
       })
       
   },[])
+  useGSAP(()=>{
+    if(!isTabletOrMobile) return;
+    if(isTabletOrMobile){
+  ScrollTrigger.create({
+      trigger:heroContainer.current,
+      start:"top top",
+      end:`${250}px`,
+      pin:true,
+      scrub:1,
+      onUpdate:(self)=>{
+        const progress = self.progress
+        gsap.to(imageContainer.current,{
+          x: -(progress * 250)
+        })
+      }
+    })
+    }
+  
+  },[isTabletOrMobile])
   return (
-    <div className='lg:p-14 p-9 overflow-clip'>
+    <div ref={heroContainer} className='lg:p-14 p-9 overflow-clip'>
       <nav className='flex items-center lg:items-start justify-between'>
         <h1 className='font-sfProMd text-[36px] lg:text-[128px] leading-none lg:-mt-3 uppercase' style={{letterSpacing:'-0.04em'}}>oaken</h1>
         <ul className='hidden lg:flex items-center gap-4'>
-            <li className='text-[18px] text-black uppercase underline font-sfProB'><a href="#">cart</a></li>
+            <Link href='/cart' className='text-[18px] text-black uppercase underline font-sfProB'>cart</Link>
               <li className='text-[18px] text-black uppercase underline font-sfProB'><a href="#">search</a></li>
               <div className='flex items-center gap-1'>
                  <li className='text-[18px] text-black uppercase font-sfProB leading-none -mt-1/2'>US</li>
@@ -67,15 +92,38 @@ const HeroSection = () => {
               </div>
              
         </ul>
-        <div onClick={handleModalOpen} className='lg:hidden flex gap-3 flex-col items-end'>
-   <div className='h-[5px] w-[35px] bg-black rounded-full'/>
-    <div className='h-[5px] w-[50px] bg-black rounded-full'/>
-        </div>
-        {modalOpen && (
-          <HamburgerMenu onClose={handleModalClose}/>
-        )}
+       {/* Animated Hamburger */}
+        <button
+          onClick={handleModalOpen}
+          className='lg:hidden flex flex-col gap-3 items-end relative w-[50px] h-[32px] justify-center'
+          aria-label="Open menu"
+        >
+          <div
+            className={`h-[3px] bg-black rounded-full transition-all duration-300 ease-out ${
+              modalOpen ? 'w-[50px] rotate-45 translate-y-[6px]' : 'w-[35px]'
+            }`}
+          />
+          <div
+            className={`h-[3px] bg-black rounded-full transition-all duration-300 ease-out ${
+              modalOpen ? 'w-[50px] -rotate-45 -translate-y-[6px]' : 'w-[50px]'
+            }`}
+          />
+        </button>
    
       </nav>
+        {modalOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/40 z-40 lg:hidden animate-fadeIn"
+            onClick={handleModalClose}
+          />
+          {/* Modal */}
+          <div className="fixed inset-0 z-50 lg:hidden animate-slideInRight">
+            <HamburgerMenu onClose={handleModalClose} />
+          </div>
+        </>
+      )}
       <div className='flex flex-col lg:flex-row items-start gap-6 lg:justify-between mt-15 lg:mt-30'>
         <div>
             <ul className='lg:flex hidden flex-col text-black text-[20px] font-sfProMd gap-6'>
@@ -88,7 +136,7 @@ const HeroSection = () => {
             </ul>
             <p className='lg:hidden font-sfPro text-[14px]' style={{letterSpacing:'-0.03em'}}>Oaken designs and crafts furniture from solid wood, guided by function, precision, and a commitment to longevity</p>
         </div>
-        <div className='flex gap-4 lg:gap-8'>
+        <div ref={imageContainer} className='flex gap-4 lg:gap-8'>
             <Image src={HeroImage1} alt='hero-image' className='lg:w-[398px] w-[341px] h-[335px] lg:h-[442px] object-cover'/>
              <Image src={HeroImage2} alt='hero-image' className='lg:w-[398px] w-[341px] h-[335px] lg:h-[442px] object-cover'/>
         </div>
