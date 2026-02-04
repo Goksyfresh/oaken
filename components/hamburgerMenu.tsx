@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
+import { IoClose } from "react-icons/io5";
 
 const HamburgerMenu = ({ onClose }: { onClose: () => void }) => {
   return (
@@ -8,13 +10,13 @@ const HamburgerMenu = ({ onClose }: { onClose: () => void }) => {
         onClick={onClose}
         className='absolute top-9 right-9 text-2xl font-sfProB'
       >
-        ✕
+      <IoClose size={26}/>
       </button>
       
       <ul className='flex flex-col gap-4 items-center font-sfProB uppercase text-[22px]' style={{letterSpacing:"-0.03em"}}>
         <li><a href="#">about</a></li>
         <li><a href="#">collection</a></li>
-        <li><a href="#">cart</a></li>
+        <Link href='/cart'>cart</Link>
         <li><a href="#">contact</a></li>
       </ul>
     </div>

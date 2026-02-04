@@ -3,7 +3,7 @@
 import React from 'react'
 
 import Link from 'next/link'
-import { IoIosArrowRoundForward } from 'react-icons/io'
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from 'react-icons/io'
 import { useCart } from '@/context/cartContext'
 import CartItems from '@/components/cartItems'
 
@@ -39,6 +39,10 @@ export default function CartPage() {
           Your cart ({getTotalItems()} {getTotalItems() === 1 ? 'item' : 'items'})
         </p>
       </div>
+           <Link href="/">
+        <IoIosArrowRoundBack size={50} className='absolute top-6 right-6 lg:top-10 lg:right-10 cursor-pointer hover:opacity-70 transition-opacity'/>
+      </Link>
+
 
       {/* Table Header */}
       <div className="bg-[#cccccc] hidden lg:block h-[1px] w-full mt-4 mb-6" />
